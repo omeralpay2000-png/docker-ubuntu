@@ -1,5 +1,10 @@
-FROM --platform=linux/amd64 ubuntu:22.04
+FROM ubuntu:22.04
 
-RUN apt update && apt install -y tmate
+# İsteğe bağlı olarak temel araçları güncelleyebilir ve yükleyebilirsiniz
+RUN apt-get update && apt-get install -y \
+    curl \
+    wget \
+    && rm -rf /var/lib/apt/lists/*
 
-CMD tmate
+# Konteynerin kapanmasını engelleyen sonsuz döngü komutu
+CMD ["tail", "-f", "/dev/null"]
